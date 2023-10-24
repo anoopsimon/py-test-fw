@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from pytest_html_reporter import attach
 
 
 class ChromeSearch(unittest.TestCase):
@@ -19,14 +20,15 @@ class ChromeSearch(unittest.TestCase):
      def test_search_in_python_org(self):
         driver = self.driver
         driver.get("https://www.python.org")
-        self.assertIn("Python", driver.title)
+        self.assertIn("SPython", driver.title)
         elem = driver.find_element(By.ID, "id-search-field")
 
 
         elem.send_keys("getting started with python")
         elem.send_keys(Keys.RETURN)
         assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == driver.current_url
-
+        attach(data=self.driver.get_screenshot_as_png())
+        
      def test_GoogleSearchTest(self):
         driver = self.driver
         driver.get("https://www.google.com")
@@ -36,6 +38,8 @@ class ChromeSearch(unittest.TestCase):
 
         elem.send_keys("getting started with python")
         elem.send_keys(Keys.RETURN)
+        attach(data=self.driver.get_screenshot_as_png())
+
       
 
 def tearDown(self):
