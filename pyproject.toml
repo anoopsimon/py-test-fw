@@ -10,6 +10,7 @@ python = "^3.12"
 selenium = "^4.14.0"
 pytest = "^7.4.2"
 pytest-html = "^4.0.2"
+pytest-html-reporter = "^0.2.9"
 
 [build-system]
 requires = ["poetry-core"]
