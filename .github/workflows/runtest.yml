@@ -3,7 +3,7 @@ name: Selenium Tests
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test:
