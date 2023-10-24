@@ -18,6 +18,13 @@ jobs:
         with:
           python-version: 3.x  # Set your desired Python version
 
+      - name: Install Google Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          sudo apt-get -f install
+          rm google-chrome-stable_current_amd64.deb
+
       - name: Create and Activate Virtual Environment
         run: |
           python -m venv venv
@@ -27,7 +34,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Selenium Tests
-        run: pytest tests/  # Adjust the path to your tests
+        run: pytest tests/test.py  # Adjust the path to your tests
 
       - name: Deactivate Virtual Environment
         run: deactivate
