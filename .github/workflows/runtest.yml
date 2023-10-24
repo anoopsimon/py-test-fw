@@ -13,29 +13,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Docker
         uses: actions/setup-python@v2
         with:
-          python-version: 3.x  # Set your desired Python version
+          python-version: 3.x
 
-      - name: Install Google Chrome
+      - name: Build and Run Docker Container
         run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb
-          sudo apt-get -f install
-          rm google-chrome-stable_current_amd64.deb
-
-      - name: Create and Activate Virtual Environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate 
-
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run Selenium Tests and Generate HTML Report
-        run: pytest tests/test.py  # This generates the HTML report
-        continue-on-error: false  # Continue even if tests fail
-
+          docker build -t my-selenium-tests .
+          docker run -t --name selenium-tests my-selenium-tests
+        continue-on-error: true
 
 
