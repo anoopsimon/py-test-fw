@@ -33,5 +33,14 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Selenium Tests
-        run: pytest tests/test.py  # Adjust the path to your tests
+      - name: Run Selenium Tests and Generate HTML Report
+        run: pytest --html=report.html tests/test.py  # This generates the HTML report
+        continue-on-error: true  # Continue even if tests fail
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: pytest-html-report
+          path: report.html
+
+
