@@ -10,6 +10,9 @@ WORKDIR /app
 # Copy your project files into the container
 COPY . /app
 
+# Install Poetry
+RUN pip install poetry
+
 # # Create and activate a virtual environment
 RUN python -m venv venv
 RUN . venv/bin/activate
