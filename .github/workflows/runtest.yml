@@ -35,6 +35,3 @@ jobs:
 
       - name: Run Selenium Tests
         run: pytest tests/test.py  # Adjust the path to your tests
-
-      - name: Deactivate Virtual Environment
-        run: deactivate
