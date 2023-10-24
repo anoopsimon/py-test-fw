@@ -27,6 +27,17 @@ class ChromeSearch(unittest.TestCase):
         elem.send_keys(Keys.RETURN)
         assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == driver.current_url
 
+     def GoogleSearchTest(self):
+        driver = self.driver
+        driver.get("https://www.google.com")
+        self.assertIn("Google", driver.title)
+        elem = driver.find_element(By.ID, "APjFqb")
+
+
+        elem.send_keys("getting started with python")
+        elem.send_keys(Keys.RETURN)
+      
+
 def tearDown(self):
         self.driver.close()
 
