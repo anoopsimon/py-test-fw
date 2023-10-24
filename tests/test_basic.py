@@ -20,7 +20,7 @@ class ChromeSearch(unittest.TestCase):
      def test_search_in_python_org(self):
         driver = self.driver
         driver.get("https://www.python.org")
-        self.assertIn("SPython", driver.title)
+        self.assertIn("Python", driver.title)
         elem = driver.find_element(By.ID, "id-search-field")
 
 
