@@ -2,11 +2,19 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 
 class ChromeSearch(unittest.TestCase):
      def setUp(self):
-        self.driver = webdriver.Chrome("")
+        chrome_options = Options()
+        chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+
+        self.driver = webdriver.Chrome(chrome_options)
+        #self.driver = webdriver.Chrome("")
 
      def test_search_in_python_org(self):
         driver = self.driver
