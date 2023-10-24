@@ -10,16 +10,12 @@ WORKDIR /app
 # Copy your project files into the container
 COPY . /app
 
-# Run Poetry to set up your project and install dependencies
-RUN poetry config virtualenvs.create false && \
-    poetry install
-
 # # Create and activate a virtual environment
-# RUN python -m venv venv
-# RUN . venv/bin/activate
+RUN python -m venv venv
+RUN . venv/bin/activate
 
 # Install project dependencies
-#RUN pip install -r requirements.txt
+RUN poetry install
 
 # Install Google Chrome (change this depending on your Docker base image)
 RUN apt -f install -y
