@@ -1,0 +1,33 @@
+name: Selenium Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # Set your desired Python version
+
+      - name: Create and Activate Virtual Environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate  # On Windows, use '.\venv\Scripts\activate'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Selenium Tests
+        run: pytest tests/  # Adjust the path to your tests
+
+      - name: Deactivate Virtual Environment
+        run: deactivate

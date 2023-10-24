@@ -11,7 +11,9 @@ class ChromeSearch(unittest.TestCase):
         driver = self.driver
         driver.get("https://www.python.org")
         self.assertIn("Python", driver.title)
-        elem = driver.find_element_by_name("q")
+        elem = driver.find_element(By.ID, "id-search-field")
+
+
         elem.send_keys("getting started with python")
         elem.send_keys(Keys.RETURN)
         assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == driver.current_url

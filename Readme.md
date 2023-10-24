@@ -2,4 +2,4 @@
 
 ### Install Dependencies
 
-`poetry install`
+`pip install -r requirements.txt`
