@@ -8,7 +8,8 @@
 4. deactivate Virtual Environment `deactivate`
 
 
-### Build in Docker
+### Build in Project in Docker
 
-docker build -t my-selenium-tests .
-docker run -it --rm my-selenium-tests
+Build Image : `docker build -t my-selenium-tests .`
+
+Run Container : `docker run -it --rm my-selenium-tests`
