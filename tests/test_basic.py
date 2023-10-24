@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from pytest_html_reporter import attach
-
+from core_fw.util import printMessage
 
 class ChromeSearch(unittest.TestCase):
      def setUp(self):
@@ -18,6 +18,7 @@ class ChromeSearch(unittest.TestCase):
         #self.driver = webdriver.Chrome("")
 
      def test_search_in_python_org(self):
+        printMessage()
         driver = self.driver
         driver.get("https://www.python.org")
         self.assertIn("Python", driver.title)

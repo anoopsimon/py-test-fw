@@ -2,7 +2,7 @@
 name = "test-framework"
 version = "0.1.0"
 description = ""
-authors = ["Anoop Simon <Anoop.Simon@health.vic.gov.au>"]
+authors = ["Anoop Simon <s451421990@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
