@@ -28,7 +28,7 @@ jobs:
       - name: Create and Activate Virtual Environment
         run: |
           python -m venv venv
-          source venv/bin/activate  # On Windows, use '.\venv\Scripts\activate'
+          source venv/bin/activate 
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
