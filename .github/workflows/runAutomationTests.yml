@@ -23,5 +23,10 @@ jobs:
           docker build -t my-selenium-tests .
           docker run -t --name selenium-tests my-selenium-tests
         continue-on-error: true
-
+    
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: pytest-html-report
+          path: report.html
 
