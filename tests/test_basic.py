@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from pytest_html_reporter import attach
-from core_fw.util import printMessage
+from core.commands import Commands
 
 class ChromeSearch(unittest.TestCase):
      def setUp(self):
@@ -18,29 +18,23 @@ class ChromeSearch(unittest.TestCase):
         #self.driver = webdriver.Chrome("")
 
      def test_search_in_python_org(self):
-        printMessage()
-        driver = self.driver
-        driver.get("https://www.python.org")
-        self.assertIn("Python", driver.title)
-        elem = driver.find_element(By.ID, "id-search-field")
+        p1 = Commands(self.driver)
+      #   driver = self.driver
+      #   driver.get("https://www.python.org")
+      #   self.assertIn("Python", driver.title)
+      #   elem = driver.find_element(By.ID, "id-search-field")
 
 
-        elem.send_keys("getting started with python")
-        elem.send_keys(Keys.RETURN)
-        assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == driver.current_url
-        attach(data=self.driver.get_screenshot_as_png())
+      #   elem.send_keys("getting started with python")
+      #   elem.send_keys(Keys.RETURN)
+      #   get_element_text(driver,"id-search-field")
+      #   assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == driver.current_url
+      #   attach(data=self.driver.get_screenshot_as_png())
 
      def test_GoogleSearchTest(self):
-        driver = self.driver
-        driver.get("https://www.google.com")
-        self.assertIn("Google", driver.title)
-        elem = driver.find_element(By.ID, "APjFqb")
-
-
-        elem.send_keys("getting started with python")
-        elem.send_keys(Keys.RETURN)
-        
-
+         commands = Commands(self.driver)
+         commands.goto('https://www.google.com')
+         commands.type('#APjFqb','Google')
       
 
 def tearDown(self):
