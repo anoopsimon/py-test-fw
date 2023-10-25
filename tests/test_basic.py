@@ -18,18 +18,16 @@ class ChromeSearch(unittest.TestCase):
         #self.driver = webdriver.Chrome("")
 
      def test_search_in_python_org(self):
-        p1 = Commands(self.driver)
-      #   driver = self.driver
-      #   driver.get("https://www.python.org")
-      #   self.assertIn("Python", driver.title)
-      #   elem = driver.find_element(By.ID, "id-search-field")
+        commands = Commands(self.driver)
+        commands.goto('https://www.python.org')
+        self.assertIn("Python", self.driver.title)
+        commands.type("#id-search-field","getting started with python")
+        #commands.type_special_key("#id-search-field",Keys.RETURN)
+        #assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == self.driver.current_url
 
-
-      #   elem.send_keys("getting started with python")
       #   elem.send_keys(Keys.RETURN)
       #   get_element_text(driver,"id-search-field")
-      #   assert "https://www.python.org/search/?q=getting+started+with+python&submit=" == driver.current_url
-      #   attach(data=self.driver.get_screenshot_as_png())
+        attach(data=self.driver.get_screenshot_as_png())
 
      def test_GoogleSearchTest(self):
          commands = Commands(self.driver)

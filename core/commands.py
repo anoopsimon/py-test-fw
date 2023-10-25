@@ -22,3 +22,8 @@ class Commands:
         element = self.find_element_by_locator(locator)
         element.clear()
         element.send_keys(value)
+
+  def type_special_key(self, locator, special_key):
+        element = self.find_element_by_locator(locator)
+        element.clear()
+        element.send_keys(special_key)
